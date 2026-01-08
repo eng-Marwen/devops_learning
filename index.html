@@ -24,7 +24,7 @@
         display: inline-block;
       }
       #container {
-        display: none;
+        display: block;
       }
       #container-edit {
         display: none;
@@ -43,28 +43,22 @@
     <script>
       window.addEventListener("DOMContentLoaded", async function () {
         try {
-          const response = await fetch("http://localhost:3000");
+          const response = await fetch("http://localhost:3000/get-profile");
           console.log("response", response);
           const user = await response.json();
-          console.log(JSON.stringify(user));
+          console.log("User data:", JSON.stringify(user));
 
-          document.getElementById("name").textContent = user.name
-            ? user.name
-            : "Marwen Boussabat";
-          document.getElementById("email").textContent = user.email
-            ? user.email
-            : "marwen.smith@example.com";
-          document.getElementById("interests").textContent = user.interests
-            ? user.interests
-            : "coding";
-
-          const cont = document.getElementById("container");
-          cont.style.display = "block";
+          if (user.name) {
+            document.getElementById("name").textContent = user.name;
+          }
+          if (user.email) {
+            document.getElementById("email").textContent = user.email;
+          }
+          if (user.interests) {
+            document.getElementById("interests").textContent = user.interests;
+          }
         } catch (error) {
           console.error("Error loading profile:", error);
-          // Show container with default values even if fetch fails
-          const cont = document.getElementById("container");
-          cont.style.display = "block";
         }
       });
 
@@ -117,10 +111,10 @@
     <div class="container" id="container">
       <h1>User profile</h1>
       <span>Name: </span>
-      <h3 id="name">Marwen Boussabat</h3>
+      <h3 id="name">Anna Smith</h3>
       <hr />
       <span>Email: </span>
-      <h3 id="email">marwen.smith@example.com</h3>
+      <h3 id="email">anna.smith@example.com</h3>
       <hr />
       <span>Interests: </span>
       <h3 id="interests">coding</h3>
