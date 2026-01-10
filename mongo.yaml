@@ -1,7 +1,7 @@
 version: '1'
 services:
   my-app:
-    image: my-app:1.2
+    image: engmarwen/my-app:1.2
     ports:
       - 3000:3000
   mongodb:
