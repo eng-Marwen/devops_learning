@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // MongoDB connection
 let mongoUrlLocal =
-  "mongodb://admin:password@localhost:27017/user_account?authSource=admin";
+  "mongodb://admin:password@mongodb:27017/user_account?authSource=admin";
 
 mongoose
   .connect(mongoUrlLocal, {
@@ -55,7 +55,6 @@ app.post("/update-profile", async function (req, res) {
 });
 
 app.get("/get-profile", async function (req, res) {
-
   try {
     const user = await User.findOne({ userid: 1 });
     console.log("Profile from DB:", user);
