@@ -55,7 +55,6 @@ app.post("/update-profile", async function (req, res) {
 });
 
 app.get("/get-profile", async function (req, res) {
-  console.log("GET /get-profile called");
 
   try {
     const user = await User.findOne({ userid: 1 });
