@@ -80,3 +80,50 @@ jobs:
 #          ↓
 #      Deploy on render
 #
+
+
+# B. Continuous Integration (CI) — Testing & Validation
+
+# Ensure the code works and is high quality before deployment.
+
+# Common steps:
+
+# Checkout code (clone the repo)
+
+# Set up environment (Node.js, Python, Java, etc.)
+
+# Install dependencies
+
+# Run tests (unit, integration, end-to-end)
+
+# Optional:
+
+# Linting / code formatting check
+
+# Static type checks (TypeScript)
+
+# Security audit (npm audit)
+
+# Test coverage check
+
+# ✅ Goal: catch issues early.
+
+# C. Continuous Delivery / Deployment (CD) — Build & Deploy
+
+# Get the code live automatically if CI passes.
+
+# Common steps:
+
+# Build artifacts (Docker image, binary, zip, etc.)
+
+# Tag version (semantic version + commit SHA)
+
+# Push artifact (Docker registry, package manager)
+
+# Deploy to target environment:
+
+# Cloud service (Render, Railway, Fly.io)
+
+# Kubernetes cluster
+
+# Serverless platform
