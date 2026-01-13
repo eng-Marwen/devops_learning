@@ -55,15 +55,14 @@ jobs:
           push: true
           #specify the repo name
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/my-app:${{ env.IMAGE_TAG }} 
+            ${{ secrets.DOCKER_USERNAME }}/my-app:${{ env.IMAGE_TAG }}
       #  Deploy to Render
       - name: Deploy to Render
         uses: render-examples/deploy-docker@v1
         with:
           apiKey: ${{ secrets.RENDER_API_KEY }}
           serviceId: srv-d5j7lp0gjchc73d0060g
-          image: ${{ secrets.DOCKER_USERNAME }}/my-app:v1.0.0-${{ github.sha }}
-
+          image: ${{ secrets.DOCKER_USERNAME }}/my-app:${{ env.IMAGE_TAG }}
 # Push to main
 #    ↓
 # Checkout code
