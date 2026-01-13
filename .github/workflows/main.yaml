@@ -60,7 +60,7 @@ jobs:
       - name: Deploy to Render
         uses: render-examples/deploy-docker@v1
         with:
-          apiKey: ${{ rnd_vNn2l4SsTv86QneV4p4vwL14jHkt }}
+          apiKey: ${{ secrets.RENDER_API_KEY }}
           serviceId: srv-d5j7lp0gjchc73d0060g
           image: ${{ secrets.DOCKER_USERNAME }}/my-app:v1.0.0-${{ github.sha }}
 
