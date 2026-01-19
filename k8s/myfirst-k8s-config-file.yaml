@@ -101,7 +101,7 @@ spec:
     # Ports: Defines port mapping for the service
     - protocol: TCP # Network protocol (TCP or UDP)
       port:
-        3000 # Port exposed by the Service (what clients connect to)
+        27017 # Port exposed by the Service (what clients connect to)
         # Other pods/services access MongoDB via: mongodb-service:3000
       targetPort:
         27017 # Port on the pod/container where traffic is forwarded
