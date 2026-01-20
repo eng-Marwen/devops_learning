@@ -1,11 +1,11 @@
-pipline{
+pipeline{
   agent any
-  satges("buid"){
+  satge("buid"){
     step{
       echo 'hello world'
     }
   }
-    satges("test"){
+    satge("test"){
     step{
       echo 'hello test'
     }
