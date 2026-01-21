@@ -51,7 +51,7 @@ jobs:
           LAST_TAG=$(git describe --tags --abbrev=0 || echo "v0.0.0")
           echo "Last tag: $LAST_TAG"
 
-          if git log ${LAST_TAG}..HEAD --pretty=%B | grep -q 'BREAKING CHANGE'; then
+          if git log ${LAST_TAG}..HEAD --pretty=%B | grep -q 'BigFeat'; then
             NEW_TAG=$(echo $LAST_TAG | awk -F. -v OFS=. '{$1=$1+1; $2=0; $3=0; print}')
           elif git log ${LAST_TAG}..HEAD --pretty=%B | grep -q 'feat'; then
             NEW_TAG=$(echo $LAST_TAG | awk -F. -v OFS=. '{$2=$2+1; $3=0; print}')
@@ -61,8 +61,7 @@ jobs:
             NEW_TAG=$LAST_TAG
           fi
 
-          SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          IMAGE_TAG="${NEW_TAG}-${SHA}"
+          IMAGE_TAG="$NEW_TAG"
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
           echo "Determined Docker image tag: $IMAGE_TAG"
 
