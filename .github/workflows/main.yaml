@@ -43,8 +43,7 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
-          args: >
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          args: -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
 
 
